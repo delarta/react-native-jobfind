@@ -2,8 +2,8 @@ import ScreenHeaderBtn from "./common/header/ScreenHeaderBtn";
 
 // home screen
 import Welcome from "./home/welcome/Welcome";
-import Nearbyjobs from "./home/nearby/Nearbyjobs";
-import Popularjobs from "./home/popular/Popularjobs";
+import PetServices from "./home/petservices/PetServices";
+import AdoptSection from "./home/adopt/AdoptSection";
 
 // job details screen
 import Company from "./jobdetails/company/Company";
@@ -18,12 +18,12 @@ import NearbyJobCard from "./common/cards/nearby/NearbyJobCard";
 export {
   ScreenHeaderBtn,
   Welcome,
-  Nearbyjobs,
-  Popularjobs,
+  PetServices,
+  AdoptSection,
   Company,
   JobTabs,
   JobAbout,
   JobFooter,
   Specifics,
-  NearbyJobCard
+  NearbyJobCard,
 };

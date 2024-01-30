@@ -8,12 +8,13 @@ import {
 } from "react-native";
 import { useRouter } from "expo-router";
 
-import styles from "./popularjobs.style";
+import styles from "./adoptsection.style";
 import { COLORS, SIZES } from "../../../constants";
-import PopularJobCard from "../../common/cards/popular/PopularJobCard";
+import AdoptCard from "../../common/cards/adopt/AdoptCard";
 import useFetch from "../../../hook/useFetch";
+import { petList } from "../../../dummyData/petData";
 
-const Popularjobs = () => {
+const AdoptSection = () => {
   const router = useRouter();
 
   const [selectedJob, setSelectedJob] = useState();
@@ -26,9 +27,9 @@ const Popularjobs = () => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Popular Jobs</Text>
+        <Text style={styles.headerTitle}>ADOPT</Text>
         <TouchableOpacity>
-          <Text style={styles.headerBtn}>Show all</Text>
+          <Text style={styles.headerBtn}>See more</Text>
         </TouchableOpacity>
       </View>
 
@@ -39,9 +40,11 @@ const Popularjobs = () => {
           <Text>Something went wrong</Text>
         ) : (
           <FlatList
+            showsHorizontalScrollIndicator={false}
+            keyExtractor={(item) => item.id}
             data={data}
             renderItem={({ item }) => (
-              <PopularJobCard
+              <AdoptCard
                 item={item}
                 handleCardPress={() => {}}
                 selectedJob={selectedJob}
@@ -56,4 +59,4 @@ const Popularjobs = () => {
   );
 };
 
-export default Popularjobs;
+export default AdoptSection;

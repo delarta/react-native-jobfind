@@ -21,24 +21,25 @@ const Welcome = () => {
   const [activeJobType, setActiveJobTypes] = useState("Full-time");
   return (
     <View>
-      <View style={styles.container}>
-        <Text style={styles.userName}>Hello Delarta</Text>
-        <Text style={styles.welcomeMessage}>Find your perfect job</Text>
-      </View>
-
       <View style={styles.searchContainer}>
-        <View style={styles.searchWrapper}>
-          <TextInput
-            style={styles.searchInput}
-            value=""
-            onChange={() => {}}
-            placeholder="What are you looking for"
-          />
-        </View>
+        <TouchableOpacity style={styles.searchWrapper}>
+          <View style={{ width: 40 }}>
+            <Image
+              source={icons.search}
+              resizeMode="contain"
+              style={styles.searchIcon}
+            />
+          </View>
+
+          <View>
+            <Text style={styles.searchTitle}>Start your search</Text>
+            <Text style={styles.searchSubtitle}>Where | What | When | Who</Text>
+          </View>
+        </TouchableOpacity>
 
         <TouchableOpacity style={styles.searchBtn} onPress={() => {}}>
           <Image
-            source={icons.search}
+            source={icons.bell}
             // note: resizeMode = objectFit in CSS
             resizeMode="contain"
             style={styles.searchBtnImage}
@@ -46,24 +47,11 @@ const Welcome = () => {
         </TouchableOpacity>
       </View>
 
-      <View style={styles.tabsContainer}>
-        {/* <ScrollView
-          horizontal
-          contentContainerStyle={{ columnGap: SIZES.small }}
-        >
-          {jobTypes.map((item) => (
-            <TouchableOpacity
-              key={item}
-              style={styles.tab(activeJobType, item)}
-              onPress={() => {
-                setActiveJobTypes(item);
-                router.push(`/search/${item}`);
-              }}
-            >
-              <Text style={styles.tabText(activeJobType, item)}>{item}</Text>
-            </TouchableOpacity>
-          ))}
-        </ScrollView> */}
+      <View style={styles.welcomeContainer}>
+        <Text style={styles.welcomeMessage}>Hi, Jeanette!</Text>
+      </View>
+
+      {/* <View style={styles.tabsContainer}>
         <FlatList
           data={jobTypes}
           renderItem={({ item }) => (
@@ -81,7 +69,7 @@ const Welcome = () => {
           contentContainerStyle={{ columnGap: SIZES.small }}
           keyExtractor={(item) => item}
         />
-      </View>
+      </View> */}
     </View>
   );
 };

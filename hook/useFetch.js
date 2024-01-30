@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 // use dummy data for now
-import { popularjobs } from "../dummyData/popularJobData";
+import { petList } from "../dummyData/petData";
+import { petServices } from "../dummyData/petServices";
 
 const useFetch = (endpoint, query) => {
-  const [data, setData] = useState(popularjobs.data);
+  const [data, setData] = useState(petList.data);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(null);
 
@@ -35,9 +36,11 @@ const useFetch = (endpoint, query) => {
   //   }
   // };
 
-  // useEffect(() => {
-  //   fetchData();
-  // });
+  useEffect(() => {
+    if (query.query === "petServices") {
+      setData(petServices);
+    }
+  }, [query]);
 
   // const refetch = () => {
   //   setIsLoading(true);
